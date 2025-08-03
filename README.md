@@ -2,6 +2,19 @@
 
 A comprehensive system for estimating translated word counts from English to various target languages using data-driven ratios derived from real translation data.
 
+## 🌐 **Live Web Application**
+
+**🚀 Try it now:** https://mt-word-count-estimator.streamlit.app/
+
+**Features available online:**
+- ⚡ **Quick Estimates** - Get instant word count estimates for any language
+- 📊 **Batch Processing** - Upload CSV files for bulk estimation  
+- 🔧 **Ratio Management** - View and update language expansion ratios
+- 📈 **Translation Analysis** - Automatically calculate ratios from your translation data
+- 📱 **Mobile Friendly** - Works on any device, no installation required
+
+*No installation required - works directly in your browser!*
+
 ## 🎯 Overview
 
 This system provides accurate word count estimations for translation projects by analyzing actual translation data and applying learned language-specific expansion/compression ratios. It supports both interactive single estimates and batch processing of large CSV datasets.
@@ -26,19 +39,28 @@ word_estimation/
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### Option 1: Use Online (Recommended)
+**Simply visit:** https://mt-word-count-estimator.streamlit.app/
+- No installation required
+- Works on any device
+- Always up-to-date
+- Free to use
+
+### Option 2: Run Locally
+
+#### Prerequisites
 - Python 3.7+
 - Required: `streamlit`, `pandas` for web interface
 - Optional: `openpyxl` for Excel file support
 
-### Installation
+#### Installation
 ```bash
 pip install -r requirements.txt
 ```
 
-### Running the System
+#### Running the System
 
-#### 🌐 Web Interface (Recommended)
+##### 🌐 Web Interface (Recommended)
 ```bash
 streamlit run streamlit_app.py
 ```
@@ -318,6 +340,25 @@ To add new languages or improve ratios:
 3. Update ratios using the `update csv` or `update excel` commands
 4. The system will automatically save and use your custom ratios
 
+## 🌐 Deployment
+
+### Live Application
+The system is deployed and accessible at: **https://mt-word-count-estimator.streamlit.app/**
+
+### Technical Details
+- **Platform**: Streamlit Cloud
+- **Repository**: https://github.com/AD-SamLi/word-count-estimator
+- **Deployment**: Automatic updates from main branch
+- **Availability**: 24/7 free hosting
+- **Requirements**: Public GitHub repository
+
+### For Developers
+To deploy your own instance:
+1. Fork the repository
+2. Create a Streamlit Cloud account
+3. Connect your GitHub repository
+4. Deploy with `streamlit_app.py` as the main file
+
 ## 📄 License
 
 This project is provided as-is for translation estimation purposes.
@@ -325,14 +366,16 @@ This project is provided as-is for translation estimation purposes.
 ## 🆘 Support
 
 For issues or questions:
-1. Check the command reference above
-2. Use the `help` command within the system
-3. Verify your input file format matches the specifications
-4. Ensure all required columns are present in your CSV files
+1. **Try the live app first**: https://mt-word-count-estimator.streamlit.app/
+2. Check the command reference above
+3. Use the `help` command within the system
+4. Verify your input file format matches the specifications
+5. Ensure all required columns are present in your CSV files
 
 ---
 
-**Last Updated**: March 8, 2025  
-**Version**: 2.0  
+**Last Updated**: January 2025  
+**Version**: 2.1 - Live Deployment  
 **Languages Supported**: 23  
-**Data Source**: 266,000+ translation pairs
+**Data Source**: 266,000+ translation pairs  
+**Live App**: https://mt-word-count-estimator.streamlit.app/
