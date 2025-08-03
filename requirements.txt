@@ -1,0 +1,18 @@
+# Word Count Estimation System Dependencies
+
+# Core dependencies (built-in Python modules)
+# - csv
+# - os
+# - sys
+# - re
+# - io
+# - collections
+
+# Web application dependencies
+streamlit>=1.28.0   # Web interface framework
+pandas>=1.3.0       # Data manipulation and analysis
+
+# Optional dependencies for enhanced functionality
+openpyxl>=3.0.0     # For Excel file support (.xlsx)
+
+# Note: All other dependencies (numpy, etc.) are automatically installed with streamlit/pandas

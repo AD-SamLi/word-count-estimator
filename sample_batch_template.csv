@@ -1,0 +1,11 @@
+source,target_lang,translation,reference
+"Hello world","fr","Bonjour le monde","Bonjour le monde"
+"Good morning","de","Guten Morgen","Guten Morgen"
+"How are you?","es","¿Cómo estás?","¿Cómo estás?"
+"Thank you very much","ja","どうもありがとうございます","どうもありがとうございます"
+"Welcome to our website","zh-hans","欢迎来到我们的网站","欢迎来到我们的网站"
+"Please enter your password","it","Si prega di inserire la password","Si prega di inserire la password"
+"The file has been saved successfully","pt","O arquivo foi salvo com sucesso","O arquivo foi salvo com sucesso"
+"Click here to continue","ru","Нажмите здесь, чтобы продолжить","Нажмите здесь, чтобы продолжить"
+"User account settings","nl","Gebruikersaccount instellingen","Gebruikersaccount instellingen"
+"System configuration complete","sv","Systemkonfiguration slutförd","Systemkonfiguration slutförd"
