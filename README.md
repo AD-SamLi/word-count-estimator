@@ -1,23 +1,23 @@
-# Word Count Estimation System
+# Word & Character Count Estimation System
 
-A comprehensive system for estimating translated word counts from English to various target languages using data-driven ratios derived from real translation data.
+A comprehensive system for estimating translated word AND character counts from English to various target languages using data-driven ratios derived from real translation data.
 
 ## 🌐 **Live Web Application**
 
 **🚀 Try it now:** https://mt-word-count-estimator.streamlit.app/
 
 **Features available online:**
-- ⚡ **Quick Estimates** - Get instant word count estimates for any language
-- 📊 **Batch Processing** - Upload CSV files for bulk estimation  
-- 🔧 **Ratio Management** - View and update language expansion ratios
-- 📈 **Translation Analysis** - Automatically calculate ratios from your translation data
+- ⚡ **Quick Estimates** - Get instant word AND character count estimates for any language
+- 📊 **Batch Processing** - Upload CSV files for bulk estimation (adds both word & character columns)
+- 🔧 **Ratio Management** - View and update language expansion ratios for words & characters
+- 📈 **Translation Analysis** - Automatically calculate word & character ratios from your translation data
 - 📱 **Mobile Friendly** - Works on any device, no installation required
 
 *No installation required - works directly in your browser!*
 
 ## 🎯 Overview
 
-This system provides accurate word count estimations for translation projects by analyzing actual translation data and applying learned language-specific expansion/compression ratios. It supports both interactive single estimates and batch processing of large CSV datasets.
+This system provides accurate **word and character count estimations** for translation projects by analyzing actual translation data and applying learned language-specific expansion/compression ratios. It supports both interactive single estimates and batch processing of large CSV datasets with dual counting methodologies.
 
 ## 📁 Project Structure
 
@@ -76,26 +76,30 @@ python unified_word_count_estimator.py
 ### 🌐 Web Interface (New!)
 - **User-friendly web dashboard** with intuitive navigation
 - **Drag-and-drop file uploads** for batch processing
-- **Automatic ratio analysis** from translation data (NEW!)
-- **Real-time analytics** and visualizations
+- **Automatic word & character ratio analysis** from translation data (NEW!)
+- **Real-time analytics** and visualizations for both metrics
 - **Interactive language management** with live updates
 - **Export functionality** (CSV, Excel) with one-click downloads
 
-### ✅ Interactive Mode
-- Quick word count estimates for any language
+### ✅ Dual Estimation Mode (NEW!)
+- **Quick word count estimates** for any language
+- **Quick character count estimates** for any language
+- **Side-by-side comparison** of word vs character ratios
 - Real-time language support display
 - User-friendly command interface
 
-### ✅ Batch Processing Mode
+### ✅ Enhanced Batch Processing Mode
 - Process large CSV files with translation data
-- Add estimation columns to existing datasets
+- Add **both word AND character estimation columns** to existing datasets
 - Progress tracking for large files
 - **Web-based progress monitoring**
+- **Dual-metric analysis** for comprehensive estimation
 
-### ✅ Dynamic Ratio Management
-- **Automatic ratio calculation** from translation data (NEW!)
+### ✅ Advanced Ratio Management
+- **Automatic word & character ratio calculation** from translation data (NEW!)
+- **Dual ratio system** - separate optimization for words and characters
 - Update ratios from Excel/CSV files
-- Persistent custom ratio storage
+- Persistent custom ratio storage for both metrics
 - Data-driven optimization
 - **Visual ratio management interface**
 
@@ -135,14 +139,17 @@ en-de,en,de,system2,"Good morning","Guten Morgen","Guten Morgen"
 | `reference` | String | Human reference translation |
 
 #### Output Format:
-The system adds three new columns to your CSV:
+The system adds six new columns to your CSV:
 - `source_word_count`: Calculated English word count
 - `estimated_target_words`: Estimated target language word count
-- `estimation_ratio`: Ratio used for estimation
+- `estimation_ratio`: Word ratio used for estimation
+- `source_char_count`: Calculated English character count (NEW!)
+- `estimated_target_chars`: Estimated target language character count (NEW!)
+- `char_estimation_ratio`: Character ratio used for estimation (NEW!)
 
-### 2. Custom Ratios CSV Format
+### 2. Custom Word Ratios CSV Format
 
-To update language ratios, use this format:
+To update word language ratios, use this format:
 
 ```csv
 language,ratio
@@ -156,15 +163,35 @@ ja,0.513
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|
 | `language` | String | Language code | `"fr"`, `"de"` |
-| `ratio` | Float | Expansion/compression ratio | `1.341`, `0.998` |
+| `ratio` | Float | Word expansion/compression ratio | `1.341`, `0.998` |
 
-### 3. Excel Ratios Format
+### 3. Custom Character Ratios CSV Format (NEW!)
 
-For Excel files (.xlsx), use the same structure:
-- **Column A**: Language codes
-- **Column B**: Ratios
-- **Row 1**: Headers (`language`, `ratio`)
+To update character language ratios, use this format:
+
+```csv
+language,char_ratio
+fr,1.245
+de,1.089
+es,1.198
+ja,0.892
+```
+
+#### Columns:
+| Column | Type | Description | Example |
+|--------|------|-------------|---------|
+| `language` | String | Language code | `"fr"`, `"de"` |
+| `char_ratio` | Float | Character expansion/compression ratio | `1.245`, `1.089` |
+
+### 4. Excel Ratios Format
+
+For Excel files (.xlsx), use the same structure as CSV:
+- **Word Ratios**: Column A = Language codes, Column B = Word ratios
+- **Character Ratios**: Column A = Language codes, Column B = Character ratios  
+- **Row 1**: Headers (`language`, `ratio` or `language`, `char_ratio`)
 - **Row 2+**: Data
+
+*Note: The system automatically detects whether you're updating word or character ratios based on the column headers.*
 
 ## 🎮 Usage Examples
 
@@ -177,22 +204,22 @@ For Excel files (.xlsx), use the same structure:
 
 2. **Quick Estimates:**
    - Navigate to "Quick Estimate" page
-   - Enter English word count and select target language
-   - Get instant results with expansion/compression analysis
+   - Enter English word OR character count and select target language
+   - Get instant results with expansion/compression analysis for both metrics
 
 3. **Batch Processing:**
    - Go to "Batch Processing" page
    - Upload CSV file with drag-and-drop
-   - Download results with added estimation columns
+   - Download results with added word AND character estimation columns
 
 4. **Ratio Analysis (NEW!):**
-   - Upload translation data CSV to automatically calculate ratios
-   - Analyze your own translation data for better accuracy
-   - One-click ratio updates with validation
+   - Upload translation data CSV to automatically calculate word & character ratios
+   - Analyze your own translation data for better accuracy in both metrics
+   - One-click ratio updates with validation for both ratio types
 
 5. **Language Management:**
-   - Use "Language Management" to view, add, or update ratios
-   - Import/export ratio configurations  
+   - Use "Language Management" to view, add, or update word & character ratios
+   - Import/export ratio configurations for both metrics
    - Real-time ratio validation
 
 ### 💻 Command Line Usage
@@ -201,9 +228,13 @@ For Excel files (.xlsx), use the same structure:
 # Start the CLI system
 python unified_word_count_estimator.py
 
-# Quick estimates
+# Quick word estimates
 💬 Enter command: 1000 fr
 ✅ 1,000 English words → 1,341 French words
+
+# Quick character estimates (NEW!)
+💬 Enter command: char 5000 fr
+✅ 5,000 English characters → 6,225 French characters
 
 💬 Enter command: 500 ja  
 ✅ 500 English words → 257 Japanese words
@@ -211,30 +242,40 @@ python unified_word_count_estimator.py
 # Show available languages
 💬 Enter command: languages
 
-# Show current ratios
+# Show current word ratios
 💬 Enter command: show
+
+# Show current character ratios (NEW!)
+💬 Enter command: showchar
 ```
 
 ### Batch Processing (CLI)
 
 ```bash
-# Process a CSV file
+# Process a CSV file (adds both word & character estimates)
 💬 Enter command: batch input_data.csv output_with_estimates.csv
 Processing input_data.csv ...
 Processed 50,000 rows...
 ✅ Done! Output: output_with_estimates.csv
 ```
 
-### Automatic Ratio Analysis (CLI) - NEW!
+### Automatic Ratio Analysis (CLI) - Enhanced!
 
 ```bash
-# Analyze translation data and auto-update ratios
+# Analyze translation data and auto-update both word & character ratios
 💬 Enter command: analyze all_results_en.csv
 Analyzing translation data from all_results_en.csv...
-📊 CALCULATED RATIOS FROM 266,000 ROWS:
+
+📊 CALCULATED WORD RATIOS FROM 266,000 ROWS:
 fr         (French             ): 1.3410 (was 1.3410) [19,000 samples]
 de         (German             ): 0.9980 (was 0.9980) [24,000 samples]
-✅ Updated 23 language ratios based on your translation data
+
+📊 CALCULATED CHARACTER RATIOS FROM 266,000 ROWS:
+fr         (French             ): 1.2450 (was 1.2450) [19,000 samples]
+de         (German             ): 1.0890 (was 1.0890) [24,000 samples]
+
+✅ Updated 23 word ratios based on your translation data
+✅ Updated 23 character ratios based on your translation data
 ```
 
 ### Update Ratios (CLI)
@@ -253,19 +294,21 @@ de         (German             ): 0.9980 (was 0.9980) [24,000 samples]
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `<number> <lang>` | Quick estimate | `1000 fr` |
-| `batch <input> <output>` | Process CSV | `batch data.csv results.csv` |
-| `analyze <translation_csv>` | Auto-update ratios from data | `analyze all_results_en.csv` |
+| `<number> <lang>` | Quick word estimate | `1000 fr` |
+| `char <number> <lang>` | Quick character estimate (NEW!) | `char 5000 fr` |
+| `batch <input> <output>` | Process CSV (adds word & char estimates) | `batch data.csv results.csv` |
+| `analyze <translation_csv>` | Auto-update word & char ratios from data | `analyze all_results_en.csv` |
 | `languages` | Show detailed language info | |
-| `show` | Display current ratios | |
+| `show` | Display current word ratios | |
+| `showchar` | Display current character ratios (NEW!) | |
 | `update csv <path>` | Update from CSV | `update csv ratios.csv` |
 | `update excel <path>` | Update from Excel | `update excel ratios.xlsx` |
 | `help` | Show help | |
 | `quit` | Exit program | |
 
-## 🔧 Data Analysis Utility
+## 🔧 Enhanced Data Analysis Utility
 
-Use `analyze_data.py` to explore your translation datasets:
+Use `analyze_data.py` to explore your translation datasets with comprehensive metrics:
 
 ```bash
 python analyze_data.py [csv_file]
@@ -275,23 +318,39 @@ This utility provides:
 - Dataset structure analysis
 - Language distribution statistics
 - Translation system breakdown
-- Data quality insights
+- **Word ratio analysis** for all languages (NEW!)
+- **Character ratio analysis** for all languages (NEW!)
+- Data quality insights with dual metrics
+- Comprehensive summary export
 
-## 📈 Language Ratios
+## 📈 Dual Language Ratios
 
 The system uses optimized ratios derived from analyzing 266,000+ real translation examples:
 
-| Language | Code | Ratio | Expansion/Compression |
-|----------|------|-------|---------------------|
-| Chinese (Traditional) | zh-hant | 0.501 | 50% compression |
-| Japanese | ja | 0.513 | 49% compression |
-| Chinese (Simplified) | zh-hans | 0.530 | 47% compression |
-| Finnish | fi | 0.780 | 22% compression |
-| Korean | ko | 0.855 | 15% compression |
-| German | de | 0.998 | 0% change |
-| Danish | da | 1.000 | No change |
-| Spanish | es | 1.215 | 22% expansion |
-| French | fr | 1.341 | 34% expansion |
+### Word Count Ratios
+| Language | Code | Word Ratio | Word Expansion/Compression |
+|----------|------|------------|----------------------------|
+| Chinese (Traditional) | zh-hant | 0.501 | 50% word compression |
+| Japanese | ja | 0.513 | 49% word compression |
+| Chinese (Simplified) | zh-hans | 0.530 | 47% word compression |
+| Finnish | fi | 0.780 | 22% word compression |
+| Korean | ko | 0.855 | 15% word compression |
+| German | de | 0.998 | 0% word change |
+| Danish | da | 1.000 | No word change |
+| Spanish | es | 1.215 | 22% word expansion |
+| French | fr | 1.341 | 34% word expansion |
+
+### Character Count Ratios (NEW!)
+| Language | Code | Char Ratio | Character Expansion/Compression |
+|----------|------|------------|--------------------------------|
+| Chinese (Traditional) | zh-hant | 0.612 | 39% character compression |
+| Chinese (Simplified) | zh-hans | 0.634 | 37% character compression |
+| Japanese | ja | 0.892 | 11% character compression |
+| Finnish | fi | 1.012 | 1% character expansion |
+| Norwegian | nb | 1.034 | 3% character expansion |
+| German | de | 1.089 | 9% character expansion |
+| Korean | ko | 1.234 | 23% character expansion |
+| French | fr | 1.245 | 25% character expansion |
 
 ## ⚙️ Configuration
 
@@ -299,11 +358,15 @@ The system uses optimized ratios derived from analyzing 266,000+ real translatio
 ```env
 # Optional configuration
 DEFAULT_RATIO=1.15
+DEFAULT_CHAR_RATIO=1.12
 RATIO_FILE=custom_ratios.csv
+CHAR_RATIO_FILE=custom_char_ratios.csv
 ```
 
-### Custom Ratios File
-The system automatically creates and maintains `custom_ratios.csv` for persistent ratio storage.
+### Custom Ratios Files
+The system automatically creates and maintains:
+- `custom_ratios.csv` for persistent word ratio storage
+- `custom_char_ratios.csv` for persistent character ratio storage (NEW!)
 
 ## 🔍 Technical Details
 
@@ -313,23 +376,32 @@ The system automatically creates and maintains `custom_ratios.csv` for persisten
 - Counts hyphenated words as single units
 - Ignores punctuation and whitespace
 
-### Ratio Calculation
+### Character Counting Algorithm (NEW!)
+- Counts all characters including spaces
+- Excludes leading/trailing whitespace
+- Handles Unicode text properly
+- Preserves text formatting context
+
+### Dual Ratio Calculation
 ```
-Estimated Target Words = English Word Count × Language Ratio
+Estimated Target Words = English Word Count × Word Language Ratio
+Estimated Target Characters = English Character Count × Character Language Ratio
 ```
 
 ### Error Handling
-- Graceful handling of missing languages (uses default ratio)
+- Graceful handling of missing languages (uses default ratios for both metrics)
 - Robust CSV parsing with encoding detection
 - Progress tracking for large file processing
 - Input validation and user feedback
+- Dual-metric validation and fallback handling
 
 ## 📊 Performance
 
-- **Processing Speed**: ~50,000 rows per minute
+- **Processing Speed**: ~50,000 rows per minute (dual calculations)
 - **Memory Usage**: Efficient streaming for large files
 - **File Size Support**: Tested with 70MB+ CSV files
 - **Accuracy**: Based on 266,000+ real translation pairs
+- **Dual Metrics**: Simultaneous word and character analysis
 
 ## 🤝 Contributing
 
@@ -337,8 +409,9 @@ To add new languages or improve ratios:
 
 1. Prepare translation data in the required CSV format
 2. Use the batch processing mode to analyze your data
-3. Update ratios using the `update csv` or `update excel` commands
-4. The system will automatically save and use your custom ratios
+3. Use `analyze` command to automatically calculate both word & character ratios
+4. Manually update ratios using the `update csv` or `update excel` commands
+5. The system will automatically save and use your custom ratios for both metrics
 
 ## 🌐 Deployment
 
@@ -375,7 +448,8 @@ For issues or questions:
 ---
 
 **Last Updated**: January 2025  
-**Version**: 2.1 - Live Deployment  
-**Languages Supported**: 23  
+**Version**: 2.2 - Enhanced with Character Analysis  
+**Languages Supported**: 23 (with dual ratios)  
 **Data Source**: 266,000+ translation pairs  
+**Metrics**: Word & Character Count Estimation  
 **Live App**: https://mt-word-count-estimator.streamlit.app/
