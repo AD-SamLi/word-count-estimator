@@ -327,30 +327,32 @@ This utility provides:
 
 The system uses optimized ratios derived from analyzing 266,000+ real translation examples:
 
-### Word Count Ratios
+### Word Count Ratios (VALIDATED!)
 | Language | Code | Word Ratio | Word Expansion/Compression |
 |----------|------|------------|----------------------------|
-| Chinese (Traditional) | zh-hant | 0.501 | 50% word compression |
-| Japanese | ja | 0.513 | 49% word compression |
-| Chinese (Simplified) | zh-hans | 0.530 | 47% word compression |
-| Finnish | fi | 0.780 | 22% word compression |
-| Korean | ko | 0.855 | 15% word compression |
-| German | de | 0.998 | 0% word change |
-| Danish | da | 1.000 | No word change |
-| Spanish | es | 1.215 | 22% word expansion |
-| French | fr | 1.341 | 34% word expansion |
+| Chinese (Traditional) | zh-hant | **0.5177** | **48% word compression** |
+| Japanese | ja | **0.5307** | **47% word compression** |
+| Chinese (Simplified) | zh-hans | **0.5271** | **47% word compression** |
+| Finnish | fi | **0.7774** | **22% word compression** |
+| Korean | ko | **0.8529** | **15% word compression** |
+| German | de | **0.9979** | **0% word change** |
+| Danish | da | **1.0006** | **No word change** |
+| Spanish | es | **1.2168** | **22% word expansion** |
+| French | fr | **1.4429** | **44% word expansion** |
 
-### Character Count Ratios (NEW!)
+### Character Count Ratios (VALIDATED!)
 | Language | Code | Char Ratio | Character Expansion/Compression |
 |----------|------|------------|--------------------------------|
-| Chinese (Traditional) | zh-hant | 0.612 | 39% character compression |
-| Chinese (Simplified) | zh-hans | 0.634 | 37% character compression |
-| Japanese | ja | 0.892 | 11% character compression |
-| Finnish | fi | 1.012 | 1% character expansion |
-| Norwegian | nb | 1.034 | 3% character expansion |
-| German | de | 1.089 | 9% character expansion |
-| Korean | ko | 1.234 | 23% character expansion |
-| French | fr | 1.245 | 25% character expansion |
+| Chinese (Traditional) | zh-hant | **0.4856** | **51% character compression** |
+| Chinese (Simplified) | zh-hans | **0.5102** | **49% character compression** |
+| Korean | ko | **0.5709** | **43% character compression** |
+| Japanese | ja | **0.6638** | **34% character compression** |
+| Finnish | fi | **1.0939** | **9% character expansion** |
+| Norwegian | nb | **1.0714** | **7% character expansion** |
+| Danish | da | **1.1168** | **12% character expansion** |
+| German | de | **1.2359** | **24% character expansion** |
+| Spanish | es | **1.236** | **24% character expansion** |
+| French | fr | **1.4617** | **46% character expansion** |
 
 ## ⚙️ Configuration
 
@@ -448,8 +450,8 @@ For issues or questions:
 ---
 
 **Last Updated**: January 2025  
-**Version**: 2.2 - Enhanced with Character Analysis  
-**Languages Supported**: 23 (with dual ratios)  
-**Data Source**: 266,000+ translation pairs  
+**Version**: 2.3 - Validated Ratios from Real Data  
+**Languages Supported**: 23 (with validated dual ratios)  
+**Data Source**: 266,000+ translation pairs (ANALYZED & VALIDATED)  
 **Metrics**: Word & Character Count Estimation  
 **Live App**: https://mt-word-count-estimator.streamlit.app/

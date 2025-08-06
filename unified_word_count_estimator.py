@@ -19,23 +19,23 @@ except ImportError:
 RATIO_FILE = "custom_ratios.csv"
 CHAR_RATIO_FILE = "custom_char_ratios.csv"
 
-# Word count ratios (target_words / source_words)
+# Word count ratios (target_words / source_words) - VALIDATED from 266k translations
 DEFAULT_RATIOS = {
-    'de': 0.998, 'fr': 1.341, 'zh-hans': 0.530, 'cs': 0.938, 'ro': 1.045,
-    'da': 1.000, 'es': 1.215, 'fr-ca': 1.280, 'hu': 0.950, 'ja': 0.513,
-    'it': 1.155, 'ko': 0.855, 'pt': 1.170, 'ru': 0.948, 'fi': 0.780,
-    'nb': 0.992, 'pt-pt': 1.168, 'nl': 1.040, 'pl': 0.939, 'sv': 0.988,
-    'zh-hant': 0.501, 'tr': 0.938, 'mx': 1.158
+    'de': 0.9979, 'fr': 1.4429, 'zh-hans': 0.5271, 'cs': 0.9352, 'ro': 1.0471,
+    'da': 1.0006, 'es': 1.2168, 'fr-ca': 1.2817, 'hu': 0.9473, 'ja': 0.5307,
+    'it': 1.1528, 'ko': 0.8529, 'pt': 1.1706, 'ru': 0.9464, 'fi': 0.7774,
+    'nb': 0.9903, 'pt-pt': 1.1687, 'nl': 1.0387, 'pl': 0.9706, 'sv': 0.9875,
+    'zh-hant': 0.5177, 'tr': 0.9337, 'mx': 1.1556
 }
 DEFAULT_RATIO = 1.15
 
-# Character count ratios (target_chars / source_chars)
+# Character count ratios (target_chars / source_chars) - VALIDATED from 266k translations
 DEFAULT_CHAR_RATIOS = {
-    'de': 1.089, 'fr': 1.245, 'zh-hans': 0.634, 'cs': 1.078, 'ro': 1.134,
-    'da': 1.045, 'es': 1.198, 'fr-ca': 1.220, 'hu': 1.165, 'ja': 0.892,
-    'it': 1.178, 'ko': 1.234, 'pt': 1.156, 'ru': 1.089, 'fi': 1.012,
-    'nb': 1.034, 'pt-pt': 1.154, 'nl': 1.067, 'pl': 1.098, 'sv': 1.056,
-    'zh-hant': 0.612, 'tr': 1.078, 'mx': 1.145
+    'de': 1.2359, 'fr': 1.4617, 'zh-hans': 0.5102, 'cs': 1.0827, 'ro': 1.1399,
+    'da': 1.1168, 'es': 1.236, 'fr-ca': 1.2992, 'hu': 1.1923, 'ja': 0.6638,
+    'it': 1.244, 'ko': 0.5709, 'pt': 1.1843, 'ru': 1.1741, 'fi': 1.0939,
+    'nb': 1.0714, 'pt-pt': 1.1817, 'nl': 1.1711, 'pl': 1.1765, 'sv': 1.0926,
+    'zh-hant': 0.4856, 'tr': 1.0997, 'mx': 1.1816
 }
 DEFAULT_CHAR_RATIO = 1.12
 
