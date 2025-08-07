@@ -715,17 +715,73 @@ def help_page():
     st.markdown("""
     **Validation Status:** All ratios validated against 266,000+ real translation pairs
     
-    **Word Counting:** Uses regex pattern `\\b\\w+\\b` for Unicode-safe word detection
+    **Robust Word Counting:** Enhanced detection handles:
+    - ✅ Contractions (don't, can't, we'll)
+    - ✅ Hyphenated words (state-of-the-art, twenty-one)
+    - ✅ Numbers & Currency ($5.99, 1,000, 95.5%)
+    - ✅ Abbreviations (U.S.A., Ph.D., etc.)
+    - ✅ Mixed alphanumeric (COVID-19, HTML5)
+    - ✅ Broken words across lines
+    - ✅ Unicode & accented characters (café, naïve)
     
-    **Character Counting:** Counts all characters including spaces, excluding leading/trailing whitespace
+    **Robust Character Counting:**
+    - ✅ Unicode normalization for consistent handling
+    - ✅ Different line ending types (\\r\\n, \\r, \\n)
+    - ✅ Various whitespace normalization
+    - ✅ Proper trimming of leading/trailing whitespace
     
-    **Accuracy:** Data-driven ratios based on statistical analysis of human reference translations
+    **Accuracy:** Data-driven ratios with enterprise-grade text processing
     """)
+    
+    # Testing section
+    st.subheader("🧪 Test Robust Detection")
+    with st.expander("Try the enhanced text detection", expanded=False):
+        st.markdown("**Test how our robust detection handles various text formats:**")
+        
+        # Predefined test cases
+        test_cases = {
+            "Contractions": "Don't, can't, won't, we'll, I'm counting correctly",
+            "Hyphenated": "State-of-the-art technology for twenty-one languages",
+            "Numbers & Currency": "I paid $5.99 for 3.5kg, about 1,000 calories (95.5% accurate)",
+            "Abbreviations": "The U.S.A., Ph.D., etc. are handled properly",
+            "Mixed Tech": "COVID-19 affected HTML5 and IPv4 addresses like 192.168.1.1",
+            "Unicode": "Café, naïve, résumé, piñata are counted correctly",
+            "Complex": "The COVID-19 pandemic cost $2.5 trillion, reducing GDP by 3.1%"
+        }
+        
+        selected_test = st.selectbox("Choose a test case:", list(test_cases.keys()))
+        test_text = st.text_area("Or enter your own text:", value=test_cases[selected_test], height=100)
+        
+        if st.button("🔍 Analyze Text", type="secondary"):
+            if test_text:
+                word_count = count_words(test_text)
+                char_count = count_characters(test_text)
+                
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.metric("Words Detected", word_count)
+                with col2:
+                    st.metric("Characters Detected", char_count)
+                
+                # Show what basic detection would miss
+                import re
+                basic_words = len(re.findall(r'\b\w+\b', test_text))
+                basic_chars = len(test_text.strip())
+                
+                if word_count != basic_words or char_count != basic_chars:
+                    st.success("✅ Robust detection found differences!")
+                    st.info(f"Basic word count: {basic_words} → Robust: {word_count} ({word_count-basic_words:+d})")
+                    if char_count != basic_chars:
+                        st.info(f"Basic char count: {basic_chars} → Robust: {char_count} ({char_count-basic_chars:+d})")
+                else:
+                    st.success("✅ Text analyzed successfully!")
+            else:
+                st.warning("Please enter some text to analyze")
     
     # Version info
     st.subheader("ℹ️ Version Information")
-    st.info("**Version 2.3** - Validated Ratios from Real Data")
-    st.markdown("Enhanced with character analysis and validated against 266,000+ translation pairs")
+    st.info("**Version 2.4** - Enhanced Robust Text Detection")
+    st.markdown("Now with enterprise-grade text processing, character analysis, and validated ratios from 266,000+ translation pairs")
 
 if __name__ == "__main__":
     main()

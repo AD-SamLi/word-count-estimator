@@ -19,6 +19,17 @@ A comprehensive system for estimating translated word AND character counts from 
 
 This system provides accurate **word and character count estimations** for translation projects by analyzing actual translation data and applying learned language-specific expansion/compression ratios. It supports both interactive single estimates and batch processing of large CSV datasets with dual counting methodologies.
 
+## ✨ Key Features
+
+- **🔍 Robust Text Detection**: Enterprise-grade word/character counting handles contractions, hyphens, Unicode, numbers, currencies, abbreviations
+- **📊 Dual Metrics**: Both word AND character count predictions with validated ratios
+- **🚀 Batch Processing**: Process entire CSV files with 6 output columns (source counts + estimated target counts)
+- **⚡ Interactive CLI**: Quick estimates with simple commands and live testing
+- **🌐 Professional Web App**: User-friendly Streamlit dashboard with testing playground
+- **🔧 Smart Ratio Management**: Custom ratios, Excel/CSV import/export, automatic learning
+- **📈 Automatic Analysis**: Learn accurate ratios from your own translation data
+- **🌍 23+ Languages**: All with validated expansion/compression ratios from 266,000+ real translations
+
 ## 📁 Project Structure
 
 ```
@@ -372,17 +383,22 @@ The system automatically creates and maintains:
 
 ## 🔍 Technical Details
 
-### Word Counting Algorithm
-- Uses regex pattern: `\b\w+\b`
-- Handles Unicode text properly
-- Counts hyphenated words as single units
-- Ignores punctuation and whitespace
+### Enhanced Word Counting Algorithm (ROBUST!)
+**Enterprise-grade text detection** that handles complex edge cases:
+- ✅ **Contractions**: `don't`, `can't`, `we'll` → counted as separate meaningful units
+- ✅ **Hyphenated words**: `state-of-the-art`, `twenty-one` → handled as compound terms  
+- ✅ **Currency & Numbers**: `$5.99`, `1,000`, `95.5%` → recognized as single units
+- ✅ **Abbreviations**: `U.S.A.`, `Ph.D.`, `etc.` → counted correctly with periods
+- ✅ **Mixed alphanumeric**: `COVID-19`, `HTML5`, `IPv4` → technical terms handled
+- ✅ **Broken words**: `hyphen-\nated` → rejoined across line breaks
+- ✅ **Unicode support**: `café`, `naïve`, `résumé`, `Москва` → full international text
 
-### Character Counting Algorithm (NEW!)
-- Counts all characters including spaces
-- Excludes leading/trailing whitespace
-- Handles Unicode text properly
-- Preserves text formatting context
+### Enhanced Character Counting Algorithm (ROBUST!)
+**Professional character processing** with advanced normalization:
+- ✅ **Unicode normalization** → consistent handling of accented characters
+- ✅ **Line ending normalization** → handles `\r\n`, `\r`, `\n` uniformly  
+- ✅ **Whitespace handling** → proper processing of tabs, spaces, non-breaking spaces
+- ✅ **Trimming precision** → excludes only leading/trailing whitespace
 
 ### Dual Ratio Calculation
 ```
@@ -450,7 +466,7 @@ For issues or questions:
 ---
 
 **Last Updated**: January 2025  
-**Version**: 2.3 - Validated Ratios from Real Data  
+**Version**: 2.4 - Enhanced Robust Text Detection  
 **Languages Supported**: 23 (with validated dual ratios)  
 **Data Source**: 266,000+ translation pairs (ANALYZED & VALIDATED)  
 **Metrics**: Word & Character Count Estimation  

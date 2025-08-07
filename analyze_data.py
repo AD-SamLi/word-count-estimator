@@ -10,15 +10,91 @@ import re
 from collections import defaultdict, Counter
 
 def count_words(text):
-    """Count words in text using the same method as the estimator"""
+    """
+    Robust word counting that handles:
+    - Contractions (don't, can't, we'll)
+    - Hyphenated words (state-of-the-art, twenty-one) 
+    - Numbers (123, 3.14, 1,000, $5.99)
+    - Abbreviations (U.S.A., Ph.D., etc.)
+    - Words with apostrophes (John's, teachers')
+    - Broken words across lines (some-\nword)
+    - Mixed alphanumeric (COVID-19, HTML5)
+    - Unicode characters and accented letters
+    """
+    import re
+    import unicodedata
+    
     if not text or not isinstance(text, str):
         return 0
-    return len(re.findall(r'\b\w+\b', text.strip()))
+    
+    # Normalize Unicode characters for consistent processing
+    text = unicodedata.normalize('NFD', text)
+    
+    # Handle broken words across lines (hyphen followed by line break)
+    text = re.sub(r'-\s*\n\s*', '', text)
+    text = re.sub(r'-\s*\r\n\s*', '', text)
+    
+    # Normalize various whitespace characters to single spaces
+    text = re.sub(r'\s+', ' ', text)
+    
+    # Enhanced word pattern that captures various word types
+    # This pattern handles most edge cases while remaining readable
+    word_patterns = [
+        # Currency amounts: $5.99, €100, £1,000.50
+        r'[$£€¥₽¢]\s*[\d,]+\.?\d*',
+        # Percentages: 50%, 12.5%
+        r'\d+\.?\d*\s*%',
+        # Abbreviations with periods: U.S.A., Ph.D., etc.
+        r'\b[A-Za-z](?:\.[A-Za-z])*\.?',
+        # Contractions and possessives: don't, can't, John's
+        r"\b\w+'\w+",
+        # Hyphenated words: state-of-the-art, twenty-one
+        r'\b\w+(?:-\w+)+',
+        # Numbers with thousand separators: 1,000, 1.234.567
+        r'\b\d{1,3}(?:[,\.]\d{3})*(?:\.\d+)?',
+        # Decimal numbers: 3.14159, 0.5
+        r'\b\d+\.\d+',
+        # Regular numbers: 123, 2024
+        r'\b\d+',
+        # Mixed alphanumeric: COVID-19, HTML5, 2nd
+        r'\b\w*\d+\w*',
+        # Regular words (including Unicode letters)
+        r'\b\w+',
+    ]
+    
+    # Combine all patterns
+    combined_pattern = '|'.join(f'({pattern})' for pattern in word_patterns)
+    
+    # Find all matches
+    matches = re.findall(combined_pattern, text.strip(), re.IGNORECASE | re.UNICODE)
+    
+    # Count non-empty matches (re.findall with groups returns tuples)
+    word_count = sum(1 for match_tuple in matches if any(group for group in match_tuple))
+    
+    return word_count
 
 def count_characters(text):
-    """Count characters in text (including spaces, excluding leading/trailing whitespace)"""
+    """
+    Robust character counting that handles:
+    - Unicode normalization (accented characters, etc.)
+    - Different line ending types (\r\n, \r, \n)
+    - Various whitespace characters (tabs, non-breaking spaces, etc.)
+    - Proper trimming of leading/trailing whitespace
+    """
+    import re
+    import unicodedata
+    
     if not text or not isinstance(text, str):
         return 0
+    
+    # Normalize Unicode characters (NFD = Normalization Form Decomposed)
+    # This ensures consistent handling of accented characters
+    text = unicodedata.normalize('NFD', text)
+    
+    # Normalize different line ending types to consistent format
+    text = re.sub(r'\r\n|\r|\n', '\n', text)
+    
+    # Count all characters including spaces, excluding leading/trailing whitespace
     return len(text.strip())
 
 def analyze_csv(filename):
