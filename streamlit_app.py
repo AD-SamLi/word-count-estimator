@@ -780,8 +780,8 @@ def help_page():
     
     # Version info
     st.subheader("ℹ️ Version Information")
-    st.info("**Version 2.4** - Enhanced Robust Text Detection")
-    st.markdown("Now with enterprise-grade text processing, character analysis, and validated ratios from 266,000+ translation pairs")
+    st.info("**Version 2.5** - Validated Robust Detection Ratios")
+    st.markdown("Now with re-validated ratios using enhanced robust text processing, enterprise-grade detection, and analysis of 266,000+ translation pairs")
 
 if __name__ == "__main__":
     main()

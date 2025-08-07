@@ -338,32 +338,59 @@ This utility provides:
 
 The system uses optimized ratios derived from analyzing 266,000+ real translation examples:
 
-### Word Count Ratios (VALIDATED!)
+### Word Count Ratios (VALIDATED with ROBUST DETECTION!)
 | Language | Code | Word Ratio | Word Expansion/Compression |
 |----------|------|------------|----------------------------|
-| Chinese (Traditional) | zh-hant | **0.5177** | **48% word compression** |
-| Japanese | ja | **0.5307** | **47% word compression** |
-| Chinese (Simplified) | zh-hans | **0.5271** | **47% word compression** |
-| Finnish | fi | **0.7774** | **22% word compression** |
+| Chinese (Traditional) | zh-hant | **0.5163** | **48% word compression** |
+| Chinese (Simplified) | zh-hans | **0.5264** | **47% word compression** |
+| Japanese | ja | **0.7614** | **24% word compression** |
 | Korean | ko | **0.8529** | **15% word compression** |
-| German | de | **0.9979** | **0% word change** |
-| Danish | da | **1.0006** | **No word change** |
-| Spanish | es | **1.2168** | **22% word expansion** |
-| French | fr | **1.4429** | **44% word expansion** |
+| Finnish | fi | **0.9730** | **3% word compression** |
+| Russian | ru | **0.9718** | **3% word compression** |
+| Norwegian | nb | **1.0046** | **No word change** |
+| Danish | da | **1.0209** | **2% word expansion** |
+| Dutch | nl | **1.0434** | **4% word expansion** |
+| German | de | **1.0975** | **10% word expansion** |
+| Italian | it | **1.1542** | **15% word expansion** |
+| Polish | pl | **1.1897** | **19% word expansion** |
+| Swedish | sv | **1.2061** | **21% word expansion** |
+| Spanish (Mexico) | mx | **1.2738** | **27% word expansion** |
+| Turkish | tr | **1.3223** | **32% word expansion** |
+| Romanian | ro | **1.3297** | **33% word expansion** |
+| Spanish | es | **1.3455** | **35% word expansion** |
+| Portuguese | pt | **1.3889** | **39% word expansion** |
+| Portuguese (Portugal) | pt-pt | **1.4149** | **41% word expansion** |
+| Czech | cs | **1.4141** | **41% word expansion** |
+| French (Canadian) | fr-ca | **1.4816** | **48% word expansion** |
+| Hungarian | hu | **1.6277** | **63% word expansion** |
+| French | fr | **1.6593** | **66% word expansion** |
 
-### Character Count Ratios (VALIDATED!)
+### Character Count Ratios (VALIDATED with ROBUST DETECTION!)
 | Language | Code | Char Ratio | Character Expansion/Compression |
 |----------|------|------------|--------------------------------|
 | Chinese (Traditional) | zh-hant | **0.4856** | **51% character compression** |
 | Chinese (Simplified) | zh-hans | **0.5102** | **49% character compression** |
-| Korean | ko | **0.5709** | **43% character compression** |
-| Japanese | ja | **0.6638** | **34% character compression** |
-| Finnish | fi | **1.0939** | **9% character expansion** |
-| Norwegian | nb | **1.0714** | **7% character expansion** |
-| Danish | da | **1.1168** | **12% character expansion** |
-| German | de | **1.2359** | **24% character expansion** |
-| Spanish | es | **1.236** | **24% character expansion** |
-| French | fr | **1.4617** | **46% character expansion** |
+| Japanese | ja | **0.7078** | **29% character compression** |
+| Korean | ko | **1.0508** | **5% character expansion** |
+| Norwegian | nb | **1.0802** | **8% character expansion** |
+| Finnish | fi | **1.1368** | **14% character expansion** |
+| Danish | da | **1.1247** | **12% character expansion** |
+| Turkish | tr | **1.1669** | **17% character expansion** |
+| Dutch | nl | **1.1721** | **17% character expansion** |
+| Russian | ru | **1.1875** | **19% character expansion** |
+| Czech | cs | **1.1935** | **19% character expansion** |
+| Spanish (Mexico) | mx | **1.2024** | **20% character expansion** |
+| Romanian | ro | **1.2127** | **21% character expansion** |
+| Portuguese | pt | **1.2213** | **22% character expansion** |
+| Portuguese (Portugal) | pt-pt | **1.2225** | **22% character expansion** |
+| Polish | pl | **1.2262** | **23% character expansion** |
+| Italian | it | **1.2487** | **25% character expansion** |
+| German | de | **1.2525** | **25% character expansion** |
+| Spanish | es | **1.2569** | **26% character expansion** |
+| Swedish | sv | **1.1321** | **13% character expansion** |
+| Hungarian | hu | **1.3087** | **31% character expansion** |
+| French (Canadian) | fr-ca | **1.3389** | **34% character expansion** |
+| French | fr | **1.5039** | **50% character expansion** |
 
 ## ⚙️ Configuration
 
@@ -466,7 +493,7 @@ For issues or questions:
 ---
 
 **Last Updated**: January 2025  
-**Version**: 2.4 - Enhanced Robust Text Detection  
+**Version**: 2.5 - Validated Robust Detection Ratios  
 **Languages Supported**: 23 (with validated dual ratios)  
 **Data Source**: 266,000+ translation pairs (ANALYZED & VALIDATED)  
 **Metrics**: Word & Character Count Estimation  

@@ -19,23 +19,23 @@ except ImportError:
 RATIO_FILE = "custom_ratios.csv"
 CHAR_RATIO_FILE = "custom_char_ratios.csv"
 
-# Word count ratios (target_words / source_words) - VALIDATED from 266k translations
+# Word count ratios (target_words / source_words) - VALIDATED with ROBUST DETECTION from 266k translations
 DEFAULT_RATIOS = {
-    'de': 0.9979, 'fr': 1.4429, 'zh-hans': 0.5271, 'cs': 0.9352, 'ro': 1.0471,
-    'da': 1.0006, 'es': 1.2168, 'fr-ca': 1.2817, 'hu': 0.9473, 'ja': 0.5307,
-    'it': 1.1528, 'ko': 0.8529, 'pt': 1.1706, 'ru': 0.9464, 'fi': 0.7774,
-    'nb': 0.9903, 'pt-pt': 1.1687, 'nl': 1.0387, 'pl': 0.9706, 'sv': 0.9875,
-    'zh-hant': 0.5177, 'tr': 0.9337, 'mx': 1.1556
+    'cs': 1.4141, 'da': 1.0209, 'de': 1.0975, 'es': 1.3455, 'fi': 0.9730,
+    'fr': 1.6593, 'fr-ca': 1.4816, 'hu': 1.6277, 'it': 1.1542, 'ja': 0.7614,
+    'ko': 0.8529, 'mx': 1.2738, 'nb': 1.0046, 'nl': 1.0434, 'pl': 1.1897,
+    'pt': 1.3889, 'pt-pt': 1.4149, 'ro': 1.3297, 'ru': 0.9718, 'sv': 1.2061,
+    'tr': 1.3223, 'zh-hans': 0.5264, 'zh-hant': 0.5163
 }
 DEFAULT_RATIO = 1.15
 
-# Character count ratios (target_chars / source_chars) - VALIDATED from 266k translations
+# Character count ratios (target_chars / source_chars) - VALIDATED with ROBUST DETECTION from 266k translations
 DEFAULT_CHAR_RATIOS = {
-    'de': 1.2359, 'fr': 1.4617, 'zh-hans': 0.5102, 'cs': 1.0827, 'ro': 1.1399,
-    'da': 1.1168, 'es': 1.236, 'fr-ca': 1.2992, 'hu': 1.1923, 'ja': 0.6638,
-    'it': 1.244, 'ko': 0.5709, 'pt': 1.1843, 'ru': 1.1741, 'fi': 1.0939,
-    'nb': 1.0714, 'pt-pt': 1.1817, 'nl': 1.1711, 'pl': 1.1765, 'sv': 1.0926,
-    'zh-hant': 0.4856, 'tr': 1.0997, 'mx': 1.1816
+    'cs': 1.1935, 'da': 1.1247, 'de': 1.2525, 'es': 1.2569, 'fi': 1.1368,
+    'fr': 1.5039, 'fr-ca': 1.3389, 'hu': 1.3087, 'it': 1.2487, 'ja': 0.7078,
+    'ko': 1.0508, 'mx': 1.2024, 'nb': 1.0802, 'nl': 1.1721, 'pl': 1.2262,
+    'pt': 1.2213, 'pt-pt': 1.2225, 'ro': 1.2127, 'ru': 1.1875, 'sv': 1.1321,
+    'tr': 1.1669, 'zh-hans': 0.5102, 'zh-hant': 0.4856
 }
 DEFAULT_CHAR_RATIO = 1.12
 
